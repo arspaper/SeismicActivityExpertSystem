@@ -123,19 +123,54 @@ Main program
 """
 
 class Window:
+    """
+    Main class for handling terminal window
+
+    ...
+
+    Methods
+    -------
+    windowClear():
+        Clears the terminal window using sys fucntion
+
+    windowUpdate(linesPack):
+        Prints the lines in the terminal, separating them with empty line
+    
+    windowHandler():
+        Main function to handle windows (niggerlicious)
+    """
     def __init__(self):
+        """
+        Setting the mode for the program
+        """
         self.mode = -1
 
     def windowClear(self):
+        """
+        Clears the terminal window using sys fucntion
+        """
         os.system('cls' if os.name == 'nt' else 'clear')
 
     def windowUpdate(self, linesPack):
+        """
+        Prints the lines in the terminal, separating them with empty line
+        
+        ...
+
+        Parameters
+        ----------
+            linesPack : list
+                list containing lines to print out
+        """
         self.windowClear()
         for line in linesPack:
             print(line)
             print()
 
     def windowHandler(self):
+        """
+        Main function to handle windows (niggerlicious)
+        """
         if self.mode == -1:
             self.windowUpdate(winWelcome)
             input()
